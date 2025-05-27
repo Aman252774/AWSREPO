@@ -7,7 +7,7 @@ on:
             - completed
 jobs: 
     deploy:
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
         environment: production
 
         steps:
@@ -26,6 +26,5 @@ jobs:
                 run-id: ${{ github.event.workflow_run.id }}
                 github-token: ${{ github.token }}
 
-            - name: "Deploy to vercel"
-              run: vercel --prod --token=${{ secrets.VERCEL_AMAN }} --confirm --name=testapp
-              
+            - name: Deploy to Vercel
+              run: vercel --prod --token=${{secrets.VERCEL_AMAN}} --confirm --name=testapp
